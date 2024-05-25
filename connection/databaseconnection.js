@@ -1,11 +1,12 @@
 // backend/db/connection.js
-const mysql = require('mysql');
+const mysql = require('mysql2');
 
 const db = mysql.createConnection({
-  host: 'localhost',
-  user: 'root',
-  password: '',
-  database: 'placementexp',
+  host: process.env.MYSQLHOST,
+  port: process.env.MYSQLPORT,
+  user: process.env.MYSQLUSER,
+  password: process.env.MYSQLPASSWORD,
+  database: process.env.MYSQLDATABASE,
 });
 
 // Connect to MySQL
