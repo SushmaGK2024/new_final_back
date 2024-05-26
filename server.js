@@ -5,7 +5,7 @@ const  cors=require('cors');
 const app = express();
 // Add this line to parse JSON bodies
 app.use(express.json());
-const port = 3001;
+const port = process.env.MYSQLPORT || 3001;
 
 // Set up routes...
 // server/server.js
@@ -38,6 +38,6 @@ app.get('/', (req, res) => {
   // ...
   
 
-app.listen(port, () => {
+  app.listen(port, '0.0.0.0', () => {
   console.log(`Server is running on port ${port}`);
 });
