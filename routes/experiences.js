@@ -6,9 +6,17 @@ const bodyParser = require('body-parser');
 const { PythonShell } = require('python-shell');
 const axios= require('axios')
 const nodemailer = require('nodemailer');
+const cors=require('cors')
 
 // Use the authentication middleware for protected routes
 router.use(authenticate);
+
+router.use((req, res, next) => {
+  res.header('Access-Control-Allow-Origin', '*'); // Allow requests from any origin
+  res.header('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, OPTIONS'); // Allow the specified HTTP methods
+  res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept, Authorization'); // Allow the specified headers
+  next();
+});
 
 router.get('/experience', (req, res) => {
   db.query('SELECT * FROM experiences ', (error, results) => {
