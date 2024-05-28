@@ -12,7 +12,7 @@ const port = process.env.MYSQLPORT || 3001;
 // ...
 // Example in server.js
 app.use(cors({
-  origin: ['http://localhost:3000', 'https://placify-front.onrender.com','https://luminous-toffee-e24e31.netlify.app'],
+  origin: ['http://localhost:3000','https://luminous-toffee-e24e31.netlify.app'],
   credentials: true
 }));
 app.use(function(req, res, next) {
